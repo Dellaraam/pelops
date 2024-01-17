@@ -24,7 +24,7 @@ with open(sys.argv[2]) as fp:
 #querystrains = ",".join(strains[:3])
 #querygenes = genes[:3]
 
-for querygene in querygenes:
+for gene in genes:
 	print(querygene, file=sys.stderr)
 	for line in run(f'curl -X POST -d "strains={strains}&gids={gene}" https://tools.1001genomes.org/api/v1/pseudogenomes', shell=True, capture_output=True).stdout.decode().split('\n'):
 		print(line)
